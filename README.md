@@ -128,7 +128,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Contributions are welcome! Please feel free to open issues or submit pull requests.
 
 ## Authors:
-- Your Name (@soufianehmiad)
+- Soufiane Hmiad (@soufianehmiad)
 
 ## Acknowledgments:
 - Special thanks to Cloudflare for providing an excellent DNS management platform.
