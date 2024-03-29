@@ -1,0 +1,19 @@
+{
+  "cloudflare": {
+    "auth_email": "your-email@example.com",       // Your Cloudflare account email
+    "auth_method": "token",                       // Authentication method: "token" or "global"
+    "auth_key": "your-authentication-key"         // Your Cloudflare authentication key or token
+  },
+  "websites": [
+    {
+      "domain": "example.com",                    // Domain name
+      "record_name": "example.com",               // DNS record name
+      "sitename": "Example Website",              // Description or name of the website
+      "subdomain": "subdomain.example.com",       // Subdomain (if any)
+      "zone_identifier": "your-zone-identifier",  // Zone identifier for the domain
+      "ttl": 3600,                                // Time-to-live for the DNS record (in seconds)
+      "proxy": false                              // Whether to proxy traffic through Cloudflare (true/false)
+    }
+    // Add more websites as needed
+  ]
+}
