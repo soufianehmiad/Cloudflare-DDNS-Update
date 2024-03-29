@@ -12,11 +12,11 @@ Cloudflare DDNS Update is a dynamic DNS (DDNS) updater script that automatically
 ## Usage:
 1. Clone this repository to your local machine.
 2. Customize the `config.json` file with your Cloudflare authentication details and DNS records.
-3. Make sure the `ddns-update.sh` script is executable:
+3. Make sure the `cloudflare-ddns-update.sh` script is executable:
    ```bash
-   chmod +x ddns-update.sh
+   chmod +x cloudflare-ddns-update.sh
    ```
-4. Run the `ddns-update.sh` script to start the DDNS updater service.
+4. Run the `cloudflare-ddns-update.sh` script to start the DDNS updater service.
 
 ## Installation:
 1. Clone the repository:
@@ -59,13 +59,13 @@ Cloudflare DDNS Update is a dynamic DNS (DDNS) updater script that automatically
      }
      ```
 
-4. Make sure the `ddns-update.sh` script is executable:
+4. Make sure the `cloudflare-ddns-update.sh` script is executable:
    ```bash
-   chmod +x ddns-update.sh
+   chmod +x cloudflare-ddns-update.sh
    ```
 5. Start the DDNS updater service manually:
    ```bash
-   sudo ./ddns-update.sh
+   sudo ./cloudflare-ddns-update.sh
    ```
 6. To run the service in the background and ensure it starts automatically on system boot, create a systemd service file:
    ```bash
@@ -79,13 +79,13 @@ Cloudflare DDNS Update is a dynamic DNS (DDNS) updater script that automatically
 
    [Service]
    Type=simple
-   ExecStart=/bin/bash /path/to/Cloudflare-DDNS-Update/ddns-update.sh
+   ExecStart=/bin/bash /path/to/Cloudflare-DDNS-Update/cloudflare-ddns-update.sh
    Restart=always
 
    [Install]
    WantedBy=multi-user.target
    ```
-   Replace `/path/to/Cloudflare-DDNS-Update/ddns-update.sh` with the actual path to your `ddns-update.sh` script.
+   Replace `/path/to/Cloudflare-DDNS-Update/cloudflare-ddns-update.sh` with the actual path to your `cloudflare-ddns-update.sh` script.
 
 7. Save and close the file.
 8. Reload systemd to apply changes:
