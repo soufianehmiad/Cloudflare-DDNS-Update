@@ -28,11 +28,9 @@ fi
 while IFS= read -r website; do
   domain=$(echo "$website" | jq -r '.domain')
   record_name=$(echo "$website" | jq -r '.record_name')
-  sitename=$(echo "$website" | jq -r '.sitename')
-  subdomain=$(echo "$website" | jq -r '.subdomain')
   zone_identifier=$(echo "$website" | jq -r '.zone_identifier')
   ttl=$(echo "$website" | jq -r '.ttl')
-  proxy=$(echo "$website" | jq -r '.proxy')
+  proxy=$(echo "$website" | jq -r '.proxy // false')
 
   # Get current IP address
   current_ip=$(curl -s http://ipv4.icanhazip.com)
@@ -57,7 +55,7 @@ while IFS= read -r website; do
 
   # Check if the DNS record IP matches the current IP
   if [ "$dns_ip" = "$current_ip" ]; then
-    log "DNS record for $domain ($subdomain) is up-to-date. No action needed."
+    log "DNS record for $domain is up-to-date. No action needed."
     continue
   fi
 
@@ -71,9 +69,9 @@ while IFS= read -r website; do
   # Check if the update was successful
   success=$(echo "$response" | jq -r '.success')
   if [ "$success" = "true" ]; then
-    log "DNS record for $domain ($subdomain) updated to $current_ip."
+    log "DNS record for $domain updated to $current_ip."
   else
-    log "Error: Failed to update DNS record for $domain ($subdomain)."
+    log "Error: Failed to update DNS record for $domain."
     log "Response: $response"
   fi
 
